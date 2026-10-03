@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WaLink — Instant WhatsApp chat links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="stage">
+    <header class="masthead">
+      <span class="dot"></span>
+      <span class="masthead-label">WaLink</span>
+    </header>
+
+    <h1 class="headline">Turn a number into<br>a one-tap chat link.</h1>
+    <p class="subhead">No app, no saving contacts needed — just a link that opens straight into a WhatsApp chat.</p>
+
+    <section class="panel">
+      <div class="field">
+        <label for="countryCode">Country code</label>
+        <select id="countryCode">
+          <option value="234" selected>🇳🇬 +234 (Nigeria)</option>
+          <option value="1">🇺🇸 +1 (US/Canada)</option>
+          <option value="44">🇬🇧 +44 (UK)</option>
+          <option value="233">🇬🇭 +233 (Ghana)</option>
+          <option value="254">🇰🇪 +254 (Kenya)</option>
+          <option value="27">🇿🇦 +27 (South Africa)</option>
+          <option value="91">🇮🇳 +91 (India)</option>
+          <option value="other">Other / type manually</option>
+        </select>
+      </div>
+
+      <div class="field" id="manualCodeField" hidden>
+        <label for="manualCode">Country code (digits only)</label>
+        <input type="text" id="manualCode" placeholder="e.g. 49" inputmode="numeric" />
+      </div>
+
+      <div class="field">
+        <label for="phoneNumber">Phone number <span class="optional">(no leading 0, no spaces)</span></label>
+        <input type="text" id="phoneNumber" placeholder="e.g. 8012345678" inputmode="numeric" />
+      </div>
+
+      <div class="field">
+        <label for="message">Pre-filled message <span class="optional">(optional)</span></label>
+        <textarea id="message" rows="3" placeholder="Hi! I'd like to ask about..."></textarea>
+      </div>
+
+      <button class="generate-btn" id="generateBtn">Generate link</button>
+      <p class="error-msg" id="errorMsg" hidden></p>
+    </section>
+
+    <section class="result" id="resultSection" hidden>
+      <div class="result-header">
+        <span>Your link</span>
+        <button class="copy-btn" id="copyBtn">Copy</button>
+      </div>
+      <p class="link-output" id="linkOutput"></p>
+      <a class="open-btn" id="openBtn" href="#" target="_blank" rel="noopener">Open in WhatsApp</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
